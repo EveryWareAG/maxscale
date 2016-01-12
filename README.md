@@ -1,4 +1,4 @@
-# maxscale Cookbook [![Build Status](https://travis-ci.org/EveryWare/maxscale.svg?branch=master)](https://travis-ci.org/EveryWare/maxscale)
+# maxscale Cookbook [![Build Status](https://travis-ci.org/EveryWareAG/maxscale.svg?branch=master)](https://travis-ci.org/EveryWareAG/maxscale)
 
 This cookbook installs and configure maxscale
 
@@ -23,7 +23,7 @@ The following 64-bit platforms are supported:
 | `node['maxscale']['databag']['enabled']` | `Boolen`  | `false`    | Enable Data Bag support                  |
 | `node['maxscale']['databag']['name']`    | `String`  | `maxscale` | Data Bag name                            |
 | `node['maxscale']['databag']['item']`    | `String`  | `config`   | Data Bag item name                       |
-| `node['maxscale']['config']`             | `Hash`    | `{}`       | Maxscale config                          |
+| `node['maxscale']['config']`             | `Hash`    | `{...}`    | Maxscale config                          |
 
 ## Usage
 
@@ -93,9 +93,9 @@ default['maxscale']['config'] = {
 }
 ```
 
-### Data Bag support is also available.
+### Data Bags are supported as well.
 
-As .merge is used using a databag in addition is possible as well:
+As .merge is used using a databag in addition is possible:
 
 ```
 {
