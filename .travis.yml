@@ -5,4 +5,5 @@ install:
 - bundle install --without developement
 script: 
 - bundle exec foodcritic -P -f all .
-- bundle exec rake
+- bundle exec rubocop
+- bundle exec rspec
