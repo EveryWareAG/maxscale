@@ -1,8 +1,9 @@
 language: ruby
 rvm:
   - 2.2.4
-install:
-- bundle install --without developement
+bundler_args: --without developement
+gemfile:
+- Gemfile
 script: 
 - bundle exec foodcritic -P -f all .
 - bundle exec rubocop
