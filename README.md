@@ -1,6 +1,8 @@
 # maxscale Cookbook [![Build Status](https://travis-ci.org/EveryWareAG/maxscale.svg?branch=master)](https://travis-ci.org/EveryWareAG/maxscale)
 
-This cookbook installs and configure maxscale
+This cookbook installs and configures maxscale >= 1.2.
+Encrypting the maxscale DB user passwords via `maxpasswd` is not supported currenty,
+however encrypted databags are supported.
 
 ## Requirements
 
