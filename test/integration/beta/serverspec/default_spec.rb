@@ -17,6 +17,6 @@ describe command('grep "Max open files" /proc/`pidof maxscale`/limits') do
   its(:stdout) { should match '65335' }
 end
 
-describe file('/var/log/maxscale/messages1.log') do
+describe file('/var/log/maxscale/maxscale1.log') do
   its(:content) { should match 'MariaDB Corporation MaxScale' }
 end

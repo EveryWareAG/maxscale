@@ -1,15 +1,17 @@
+# create /root/.maxadmin
 default['maxscale']['root_maxadmin'] = true
+# enable configuration via databag
 default['maxscale']['databag']['enabled'] = false
+# set databag name
 default['maxscale']['databag']['name'] = 'maxscale'
+# set databag item
 default['maxscale']['databag']['item'] = 'config'
-
+# set ulimit for max number of open files
+default['maxscale']['default']['nofile'] = '65335'
+# default base configuration
 default['maxscale']['config'] = {
   maxscale: {
-    threads: 1,
-    ms_timestamp: 0,
-    log_messages: 1,
-    log_trace: 0,
-    log_debug: 0
+    threads: 1
   },
   CLI_listener: {
     type: 'listener',

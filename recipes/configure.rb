@@ -14,4 +14,25 @@ template '/etc/maxscale.cnf' do
   variables(
     config: config_all
   )
+  sensitive true
+end
+
+ruby_block 'ensure /etc/default/maxscale is supported' do
+  block do
+    fe = Chef::Util::FileEdit.new('/etc/init.d/maxscale')
+    fe.insert_line_after_match( \
+      %r{/usr/bin/maxscale.*\|\|.*exit.*\$_RETVAL_NOT_INSTALLED}, \
+      "\n# Source additional command line arguments. \
+ (added by Chef)\n[ -f /etc/default/maxscale ] && \
+ . /etc/default/maxscale")
+    fe.write_file
+  end
+  notifies :restart, 'service[maxscale]', :delayed
+  not_if 'grep "/etc/default/maxscale" /etc/init.d/maxscale'
+end
+
+template '/etc/default/maxscale' do
+  source 'default.maxscale.erb'
+  action :create
+  notifies :restart, 'service[maxscale]', :delayed
 end

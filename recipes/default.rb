@@ -20,6 +20,7 @@ if node['maxscale']['root_maxadmin']
     mode '0600'
     variables(passwd: pw)
     only_if 'maxadmin -pmariadb add user maxadmin ' + pw
+    sensitive true
   end
 
 end
