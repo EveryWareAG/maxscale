@@ -4,7 +4,7 @@ describe 'maxscale::default' do
   describe 'Ubuntu 14.04' do
     before(:each) do
       stub_command(/maxadmin \-pmariadb add user maxadmin.*/).and_return(false)
-      stub_command("grep \"/etc/default/maxscale\" /etc/init.d/maxscale").and_return(false)
+      stub_command('grep "/etc/default/maxscale" /etc/init.d/maxscale').and_return(false)
     end
     let(:chef_run) do
       env_options = { platform: 'ubuntu', version: '14.04' }
